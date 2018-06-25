@@ -7,7 +7,7 @@ After writing your function uncomment the matching function reference at the bot
 // 1. Write a function called helloWorld that returns the string 'Hello World!'.
 
 function helloWorld() {
-
+  return 'Hello World!';
 }
 
 /*
@@ -23,8 +23,16 @@ function helloWorld() {
              lambdaSchool(8); // returns 8
 */
 
-function lambdaSchool() {
-
+function lambdaSchool(num) {
+  if (num % 3 === 0 && num % 5 === 0) {
+    return 'Lambda School';
+  } else if (num % 3 === 0) {
+    return 'Lambda';
+  } else if (num % 5 === 0) {
+    return 'School';
+  } else {
+    return 'num'
+  }
 }
 
 /*
@@ -38,8 +46,16 @@ function lambdaSchool() {
              longestString(['JavaScript', 'HTML', 'CSS']); // returns 'JavaScript'
 */
 
-function longestString() {
-
+function longestString(strs) {
+  var long = 0;
+  var word = '';
+  for (var i = 0; i < strs.length; i++) {
+    if (strs[i]. length > long) {
+      long = strs[i].length;
+      word = strs[i];
+    }
+  }
+  return word;
 }
 
 /*
@@ -50,22 +66,26 @@ function longestString() {
      Round off the decimals if needed and return the number.
 
      Example:
-             const users = [{
-               name: 'Brendan Eich',
-               age: 56,
-             }, {
-               name: 'Linus Torvalds',
-               age: 48,
-             }, {
-               name: 'Margaret Hamilton',
-               age: 81,
-             }];
+const users = [{
+ name: 'Brendan Eich',
+ age: 56,
+}, {
+ name: 'Linus Torvalds',
+ age: 48,
+}, {
+ name: 'Margaret Hamilton',
+ age: 81,
+}];
              computeUserAverageAge(users); // returns 62 (This number is rounded up from 61.6666)
 */
 
-function computeUserAverageAge() {
-
-}
+function computeUserAverageAge(users) {
+  var array = [];
+  for (var i = 0; i < users.length; i++) {
+    array.push(users[i].age)
+  }
+  return Math.round(array.reduce((a,b) => a + b) / array.length)
+  }
 
 module.exports = {
  helloWorld,
